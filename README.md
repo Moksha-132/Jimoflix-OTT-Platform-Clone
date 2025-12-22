@@ -98,7 +98,7 @@
 <img width="1920" height="1080" alt="Screenshot (40)" src="https://github.com/user-attachments/assets/76c41000-fb66-4de7-8089-fa52de426ec7" />
 
 ---
-# Developed
+# Developed By
 
 * Boya Lakshmi Moksha
 
