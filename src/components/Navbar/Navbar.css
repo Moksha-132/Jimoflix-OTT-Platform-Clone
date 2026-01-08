@@ -1,0 +1,212 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--content-padding);
+    z-index: 100;
+    transition: background-color var(--transition-normal);
+}
+
+.navbar.scrolled {
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.98) 0%, rgba(18, 18, 26, 0.95) 100%);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(139, 92, 246, 0.3);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.navbar-logo .logo-text {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.navbar-link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+    color: var(--text-primary);
+}
+
+.navbar-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-purple);
+    border-radius: var(--radius-full);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-normal);
+    opacity: 0;
+}
+
+.search-container.active .search-input {
+    width: 280px;
+    padding: var(--space-sm) var(--space-md);
+    padding-left: 40px;
+    background: rgba(20, 20, 30, 0.95);
+    border: 2px solid var(--primary-purple);
+    border-radius: var(--radius-md);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    position: absolute;
+    left: 8px;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    z-index: 1;
+}
+
+.search-container:not(.active) .search-btn {
+    position: relative;
+    left: 0;
+}
+
+.notification-btn {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-md);
+}
+
+.navbar-right .btn-icon {
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-md);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs);
+    background: transparent;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast);
+}
+
+.profile-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-profile-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 10px;
+}
+
+.profile-dropdown-icon {
+    color: var(--text-primary);
+    font-size: var(--font-size-xs);
+    transition: transform var(--transition-fast);
+}
+
+.profile-btn:hover .profile-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: var(--font-size-xl);
+}
+
+@media (max-width: 1024px) {
+    .navbar-nav {
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .search-container.active .search-input {
+        width: 150px;
+    }
+}
